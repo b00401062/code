@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 class LeetCode {
     private static String padAndReverse(String s, int len) {
