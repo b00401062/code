@@ -1,9 +1,11 @@
-package leetcode
+package leetcode;
 
-fun singleNumber(nums: IntArray): Int {
-    var res = 0
-    for (num in nums) {
-        res = res xor num
+class LeetCode {
+    public static int singleNumber(int[] nums) {
+        var res = 0;
+        for (var num : nums) {
+            res ^= num;
+        }
+        return res;
     }
-    return res
 }
