@@ -1,12 +1,13 @@
-package leetcode
+package leetcode;
 
-import kotlin.math.max
-
-fun canJump(nums: IntArray): Boolean {
-    var maxIndex: Int = 0
-    for (curIndex in nums.indices) {
-        if (curIndex > maxIndex) return false
-        maxIndex = max(maxIndex, curIndex + nums[curIndex])
+class LeetCode {
+    public static boolean canJump(int[] nums) {
+        var maxIndex = 0;
+        for (var curIndex = 0; curIndex < nums.length; curIndex++) {
+            if (curIndex > maxIndex)
+                return false;
+            maxIndex = Math.max(maxIndex, curIndex + nums[curIndex]);
+        }
+        return true;
     }
-    return true
 }
