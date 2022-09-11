@@ -1,12 +1,14 @@
-package leetcode
+package leetcode;
 
-fun change(amount: Int, coins: IntArray): Int {
-    val cache = IntArray(amount + 1)
-    cache[0] = 1
-    for (coin in coins) {
-        for (i in coin..amount) {
-            cache[i] += cache[i - coin]
+class LeetCode {
+    int change(int amount, int[] coins) {
+        var cache = new int[amount + 1];
+        cache[0] = 1;
+        for (var coin : coins) {
+            for (var i = coin; i <= amount; i++) {
+                cache[i] += cache[i - coin];
+            }
         }
+        return cache[amount];
     }
-    return cache[amount]
 }
