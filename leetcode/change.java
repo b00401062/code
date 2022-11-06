@@ -1,7 +1,7 @@
 package leetcode;
 
 class LeetCode {
-    int change(int amount, int[] coins) {
+    public static int change(int amount, int[] coins) {
         var cache = new int[amount + 1];
         cache[0] = 1;
         for (var coin : coins) {
