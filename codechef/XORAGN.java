@@ -17,5 +17,6 @@ class XORAGN {
                             .getAsInt()
             );
         }
+        stdin.close();
     }
 }

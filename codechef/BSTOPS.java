@@ -53,6 +53,7 @@ class BSTOPS {
                     break;
             }
         }
+        stdin.close();
     }
 
     private static class Node {

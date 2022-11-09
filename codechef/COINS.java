@@ -25,5 +25,6 @@ class COINS {
             int n = Integer.parseInt(stdin.nextLine());
             System.out.println(exchange(n));
         }
+        stdin.close();
     }
 }

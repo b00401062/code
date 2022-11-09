@@ -19,5 +19,6 @@ class SC31 {
             }
             System.out.println(count);
         }
+        stdin.close();
     }
 }

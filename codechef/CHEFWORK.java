@@ -18,5 +18,6 @@ class CHEFWORK {
             min[t] = Math.min(min[t], c[i]);
         }
         System.out.println(min[1] + min[2] < min[3] ? min[1] + min[2] : min[3]);
+        stdin.close();
     }
 }

@@ -40,7 +40,8 @@ class H1 {
             for (int i = 0; i < 3; i++) {
                 puzzle += stdin.nextLine().replaceAll(" ", "");
             }
-            System.out.println(steps.containsKey(puzzle) ? steps.get(puzzle) : new Integer(-1));
+            System.out.println(steps.containsKey(puzzle) ? steps.get(puzzle) : -1);
         }
+        stdin.close();
     }
 }

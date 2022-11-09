@@ -19,5 +19,6 @@ class CHNUM {
                     Arrays.stream(c).filter(a -> a > 0).min().getAsInt()
             );
         }
+        stdin.close();
     }
 }

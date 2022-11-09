@@ -17,6 +17,7 @@ class SMRSTR {
                 System.out.printf("%d ", stdin.nextInt() / p);
             System.out.println();
         }
+        stdin.close();
     }
 }
 

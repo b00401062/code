@@ -22,5 +22,6 @@ class VACCINE1 {
             count++;
         }
         System.out.println(count - 1);
+        stdin.close();
     }
 }

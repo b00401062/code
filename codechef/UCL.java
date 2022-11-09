@@ -7,6 +7,24 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 class UCL {
+    private static class Team {
+        private int point = 0;
+        private int goal = 0;
+
+        public void plus(int point, int goal) {
+            this.point += point;
+            this.goal += goal;
+        }
+
+        public int getPoint() {
+            return this.point;
+        }
+
+        public int getGoal() {
+            return this.goal;
+        }
+    }
+
     public static void main(String[] args) throws java.lang.Exception {
         Scanner stdin = new Scanner(System.in);
         int t = Integer.parseInt(stdin.nextLine());
@@ -45,23 +63,6 @@ class UCL {
                             .collect(Collectors.joining(" "))
             );
         }
-    }
-
-    private static class Team {
-        private int point = 0;
-        private int goal = 0;
-
-        public void plus(int point, int goal) {
-            this.point += point;
-            this.goal += goal;
-        }
-
-        public int getPoint() {
-            return this.point;
-        }
-
-        public int getGoal() {
-            return this.goal;
-        }
+        stdin.close();
     }
 }

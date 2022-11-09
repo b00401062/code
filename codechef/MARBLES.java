@@ -25,5 +25,6 @@ class MARBLES {
                 System.out.println(ans);
             }
         }
+        stdin.close();
     }
 }
