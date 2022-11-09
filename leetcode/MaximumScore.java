@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MaximumScore {
     public static int maximumScore(int a, int b, int c) {
         int min = Math.min(Math.min(a, b), c);
         int max = Math.max(Math.max(a, b), c);

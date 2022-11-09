@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class IsPalindrome {
     boolean isPalindrome(int x) {
         String xStr = Integer.toString(x);
         int xStrLen = xStr.length();

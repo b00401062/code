@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class LargestMerge {
     public static String largestMerge(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0, j = 0; i < word1.length() || j < word2.length();) {

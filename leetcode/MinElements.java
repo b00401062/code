@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MinElements {
     public static int minElements(int[] nums, int limit, int goal) {
         long sum = 0;
         for (int num : nums) {

@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Arrays;
 import java.util.Comparator;
 
-class LeetCode {
+class JobScheduling {
     private static class Job {
         public final int startTime;
         public final int endTime;

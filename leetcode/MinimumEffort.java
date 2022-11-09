@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Arrays;
 import java.util.Comparator;
 
-class LeetCode {
+class MinimumEffort {
     public static int minimumEffort(int[][] tasks) {
         Arrays.sort(tasks, Comparator.comparingInt(task -> task[1] - task[0]));
         int minimumEffort = 0;

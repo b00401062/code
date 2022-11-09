@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashSet;
 import java.util.Set;
 
-class LeetCode {
+class MaximumUniqueSubarray {
     public static int maximumUniqueSubarray(int[] nums) {
         int maxScore = 0;
         int curScore = 0;

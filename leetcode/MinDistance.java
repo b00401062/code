@@ -1,17 +1,17 @@
 package leetcode;
 
-class LeetCode {
-    private class Cache {
+class MinDistance {
+    private static class Cache {
         int diag;
         int dist;
-        
+
         public void update(int diag, int dist) {
             this.diag = diag;
             this.dist = dist;
         }
     }
 
-    public int minDistance(String word1, String word2) {
+    public static int minDistance(String word1, String word2) {
         int[] dp = new int[word2.length() + 1];
         for (int j = 0; j <= word2.length(); j++) {
             dp[j] = j;

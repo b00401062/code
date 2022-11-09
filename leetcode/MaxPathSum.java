@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MaxPathSum {
     private static class Maximum {
         int value = Integer.MIN_VALUE;
 

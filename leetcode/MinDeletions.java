@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-class LeetCode {
+class MinDeletions {
     public static int minDeletions(String s) {
         Map<Character, Integer> table = new HashMap<>();
         for (char c : s.toCharArray()) {

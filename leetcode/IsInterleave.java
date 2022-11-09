@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class IsInterleave {
     public static boolean isInterleave(String s1, String s2, String s3) {
         if (s1.length() + s2.length() != s3.length()) return false;
         boolean[] dp = new boolean[s2.length() + 1];

@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-class LeetCode {
+class FullJustify {
     public List<String> fullJustify(String[] words, int maxWidth) {
         List<String> res = new ArrayList<>();
         if (words.length > 0 && maxWidth > 0) {

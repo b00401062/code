@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MinMoves {
     public static int minMoves(int[] nums, int limit) {
         final int n = nums.length;
         final int[] changes = new int[2 * limit + 2];

@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Stack;
 
-class LeetCode {
+class MostCompetitive {
     public int[] mostCompetitive(int[] nums, int k) {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < nums.length; i++) {

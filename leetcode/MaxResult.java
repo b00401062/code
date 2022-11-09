@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-class LeetCode {
+class MaxResult {
     private static class Pair {
         private int maxResult;
         private int idx;

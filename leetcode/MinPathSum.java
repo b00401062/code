@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MinPathSum {
     public int minPathSum(int[][] grid) {
         int nrow = grid.length;
         int ncol = grid[0].length;

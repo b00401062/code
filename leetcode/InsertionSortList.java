@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class InsertionSortList {
     public ListNode insertionSortList(ListNode head) {
         if (head == null) return head;
         ListNode dummyHead = new ListNode(0, head);

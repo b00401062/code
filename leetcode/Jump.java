@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class Jump {
     public int jump(int[] nums) {
         final int n = nums.length;
         if (n == 1) return 0;

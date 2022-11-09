@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-class LeetCode {
+class IsScramble {
     public static boolean isScramble(String s1, String s2) {
         final int N = s1.length();
         if (N == 0) return false;

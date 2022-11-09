@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Stack;
 
-class LeetCode {
+class MaximalRectangle {
     private static class Bar {
         final int i;
         final int height;

@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Arrays;
 import java.util.Comparator;
 
-class LeetCode {
+class MaximumUnits {
     public static int maximumUnits(int[][] boxTypes, int truckSize) {
         Arrays.sort(boxTypes, Comparator.comparingInt(boxType -> -boxType[1]));
         int deficitSize = truckSize;

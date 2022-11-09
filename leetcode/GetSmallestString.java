@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class GetSmallestString {
     public static String getSmallestString(int n, int k) {
         final StringBuilder sb = new StringBuilder();
         for (int i = n - 1; i >= 0; i--) {

@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MaxSubArray {
     public static int maxSubArray(int[] nums) {
         int maxSum = Integer.MIN_VALUE;
         int curSum = 0;

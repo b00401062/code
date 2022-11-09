@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-class LeetCode {
+class MinAbsDifference {
     private static void dfs(int[] nums, int i, int sum, List<Integer> subsetSums) {
         if (i == nums.length) {
             subsetSums.add(sum);

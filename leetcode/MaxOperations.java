@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-class LeetCode {
+class MaxOperations {
     public static int maxOperations(int[] nums, int k) {
         final Map<Integer, Integer> table = new HashMap<>();
         for (int num : nums) {

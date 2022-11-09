@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Arrays;
 import java.util.function.ToIntFunction;
 
-class LeetCode {
+class MaximumWealth {
     private static ToIntFunction<int[]> sum = account ->
         Arrays.stream(account).sum();
 

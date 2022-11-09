@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-class LeetCode {
+class MinWindow {
     private static Map<Character, Integer> letterMap(String t) {
         final Map<Character, Integer> letterMap = new HashMap<>();
         for (char c : t.toCharArray()) {
