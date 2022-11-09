@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class WaysToSplit {
     private static final int MODULO = 1000000007;
 
     public static int waysToSplit(int[] nums) {

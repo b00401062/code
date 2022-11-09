@@ -1,15 +1,15 @@
-package leetcode
+package leetcode;
 
-import kotlin.math.min
-
-private fun choose(n: Int, k: Int): Int {
-    var res = 1L
-    for (i in 0 until k) {
-        res = res * (n - i) / (i + 1)
+class UniquePaths {
+    private static int choose(int n, int k) {
+        var res = 1L;
+        for (var i = 0; i < k; i++) {
+            res = res * (n - i) / (i + 1);
+        }
+        return (int) res;
     }
-    return res.toInt()
-}
 
-fun uniquePaths(m: Int, n: Int): Int {
-    return choose(m + n - 2, min(m - 1, n - 1))
+    public static int uniquePaths(int m, int n) {
+        return choose(m + n - 2, Math.min(m - 1, n - 1));
+    }
 }
