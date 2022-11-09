@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class AddTwoNumbers {
     private static void carry(ListNode l) {
         if (l.val < 10)
             return;
@@ -12,7 +12,7 @@ class LeetCode {
             carry(l.next);
         }
     }
-    
+
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null)
             return l2;

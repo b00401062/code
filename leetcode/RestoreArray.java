@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class LeetCode {
+class RestoreArray {
     private static void insertEdge(Map<Integer, List<Integer>> edges, int v0, int v1) {
         final List<Integer> neighbors = edges.getOrDefault(v0, new ArrayList<>());
         neighbors.add(v1);

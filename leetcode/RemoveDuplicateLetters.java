@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-class LeetCode {
+class RemoveDuplicateLetters {
     public static String removeDuplicateLetters(String s) {
         boolean[] seen = new boolean[26];
         int[] count = new int[26];

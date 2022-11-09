@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class CanEat {
     private static boolean canEat(long[] cumulativeCounts, int[] query) {
         int favoriteType = query[0];
         long favoriteDay = query[1];

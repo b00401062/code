@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class BinarySearch {
     public int binarySearch(int[] v, int k) {
         int lt = 0;
         int rt = v.length;

@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class Change {
     public static int change(int amount, int[] coins) {
         var cache = new int[amount + 1];
         cache[0] = 1;

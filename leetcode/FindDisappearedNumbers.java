@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-class LeetCode {
+class FindDisappearedNumbers {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> disappearedNumbers = new ArrayList<>();
         for (int num : nums) {

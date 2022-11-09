@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class ConcatenatedBinary {
     static final int MODULO = 1000000007;
 
     private static int leftShift(int n, int bitShift) {

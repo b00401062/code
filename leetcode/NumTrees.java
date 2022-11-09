@@ -2,8 +2,8 @@ package leetcode;
 
 import java.util.Arrays;
 
-class LeetCode {
-    private int[] cache = new int[] {
+class NumTrees {
+    private static int[] cache = new int[] {
         1,
         1,
         2,
@@ -23,7 +23,7 @@ class LeetCode {
         35357670
     };
 
-    private int numCacheTrees(int n) {
+    private static int numCacheTrees(int n) {
         assert cache.length > n;
         if (cache[n] != 0) {
             return cache[n];
@@ -35,7 +35,7 @@ class LeetCode {
         return sol;
     }
 
-    public int numTrees(int n) {
+    public static int numTrees(int n) {
         if (n >= cache.length) {
             cache = Arrays.copyOf(cache, n + 1);
         }

@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-class LeetCode {
+class CountBalls {
     public static int countBalls(int lowLimit, int highLimit) {
         final Map<Integer, Integer> counts = new HashMap<>();
         for (int i = lowLimit; i <= highLimit; i++) {

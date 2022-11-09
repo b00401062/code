@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-class LeetCode {
+class RecoverTree {
     private static void swapVal(TreeNode n1, TreeNode n2) {
         int val = n1.val;
         n1.val = n2.val;

@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class NumberOfMatches {
     public static int numberOfMatches(int n) {
         int number = 0;
         while (n != 1) {

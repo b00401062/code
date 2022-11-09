@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Arrays;
 
-class LeetCode {
+class CoinChange {
     public static int coinChange(int[] coins, int amount) {
         var cache = new int[amount + 1];
         Arrays.fill(cache, Integer.MAX_VALUE);

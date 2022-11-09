@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class StoneGameVII {
     public static int stoneGameVII(int[] stones) {
         final int n = stones.length;
         int[][] cache = new int[n + 1][n + 1];

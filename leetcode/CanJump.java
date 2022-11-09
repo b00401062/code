@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class CanJump {
     public static boolean canJump(int[] nums) {
         var maxIndex = 0;
         for (var curIndex = 0; curIndex < nums.length; curIndex++) {

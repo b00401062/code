@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class SingleNumber {
     public static int singleNumber(int[] nums) {
         var res = 0;
         for (var num : nums) {

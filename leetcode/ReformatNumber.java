@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class ReformatNumber {
     public static String reformatNumber(String number) {
         char[] chars = number.replaceAll("-", "").replaceAll(" ", "").toCharArray();
         final int n = chars.length;

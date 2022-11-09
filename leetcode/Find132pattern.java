@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Stack;
 
-class LeetCode {
+class Find132pattern {
     private static class Range {
         final int min;
         final int max;

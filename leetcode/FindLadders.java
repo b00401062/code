@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.stream.Collectors;
 
-class LeetCode {
+class FindLadders {
     private static enum Color {
         WHITE,
         GRAY,

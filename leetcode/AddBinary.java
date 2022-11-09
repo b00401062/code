@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class AddBinary {
     private static String padAndReverse(String s, int len) {
         var paddedS = "0".repeat(len - s.length()) + s;
         var reversedPaddedS = new StringBuilder(paddedS).reverse().toString();

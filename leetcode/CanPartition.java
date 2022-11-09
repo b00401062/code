@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Arrays;
 
-class LeetCode {
+class CanPartition {
     public static boolean canPartition(int[] nums) {
         final int sum = Arrays.stream(nums).sum();
         if (sum % 2 == 1) return false;

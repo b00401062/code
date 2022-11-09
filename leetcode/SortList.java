@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class SortList {
     private static int size(ListNode head) {
         int size = 0;
         for (ListNode ptr = head; ptr != null; ptr = ptr.next) size++;

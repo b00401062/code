@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class SortedListToBST {
     private static ListNode findMiddle(ListNode head, ListNode tail) {
         if (head == tail) return null;
         final ListNode dummyHead = new ListNode(0, head);

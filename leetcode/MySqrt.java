@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class MySqrt {
     private static long myRecursiveSqrt(final long guess, final int x) {
         return (
             guess * guess <= x && x < (guess + 1) * (guess + 1) ? guess :

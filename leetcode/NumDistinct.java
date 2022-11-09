@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class NumDistinct {
     public int numDistinct(String s, String t) {
         int[] table = new int[t.length() + 1];
         table[0] = 1;

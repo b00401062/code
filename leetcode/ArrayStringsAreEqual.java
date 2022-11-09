@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Iterator;
 
-class LeetCode {
+class ArrayStringsAreEqual {
     private static class CharStream implements Iterable<Character> {
         private final String[] words;
 

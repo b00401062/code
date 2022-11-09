@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class SortedArrayToBST {
     private static TreeNode construct(int[] nums, int lt, int rt) {
         final int md = (lt + rt) / 2;
         return (

@@ -1,6 +1,6 @@
 package leetcode;
 
-class LeetCode {
+class Check {
     public static boolean check(int[] nums) {
         boolean isFlipped = false;
         for (int i = 1; i < nums.length; i++) {

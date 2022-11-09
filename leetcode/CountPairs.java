@@ -3,7 +3,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-class LeetCode {
+class CountPairs {
     private static final long MODULO = 1000000007;
 
     public static int countPairs(int[] deliciousness) {

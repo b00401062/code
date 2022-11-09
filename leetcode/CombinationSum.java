@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class LeetCode {
+class CombinationSum {
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (target == 0)
             return List.of(List.of());

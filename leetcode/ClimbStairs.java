@@ -3,7 +3,7 @@ package leetcode;
 import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
-class LeetCode {
+class ClimbStairs {
     private static class Fibonacci implements Iterable<Integer> {
         @Override
         public Iterator<Integer> iterator() {
