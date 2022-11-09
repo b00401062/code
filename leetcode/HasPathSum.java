@@ -1,10 +1,12 @@
-package leetcode
+package leetcode;
 
-fun hasPathSum(root: TreeNode?, sum: Int): Boolean = when {
-    root == null -> false
-    root.left == null && root.right == null -> sum == root.`val`
-    else -> (
-            hasPathSum(root.left, sum - root.`val`) ||
-                    hasPathSum(root.right, sum - root.`val`)
-            )
+class HasPathSum {
+    public static boolean hasPathSum(TreeNode root, int targetSum) {
+        if (root == null) return false;
+        else if (root.left == null && root.right == null) return targetSum == root.val;
+        else return (
+            hasPathSum(root.left, targetSum - root.val) ||
+            hasPathSum(root.right, targetSum - root.val)
+        );
+    }
 }
