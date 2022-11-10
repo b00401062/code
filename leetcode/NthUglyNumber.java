@@ -1,35 +1,49 @@
-package leetcode
+package leetcode;
 
-private var cache = mutableListOf(1, 2, 3, 4, 5, 6, 8, 9, 10, 12)
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.StreamSupport;
 
-fun isUgly(i: Int): Boolean {
-    var i = i
-    var last = cache.last()
-    while (i > last) {
-        when {
-            i % 5 == 0 -> i /= 5
-            i % 3 == 0 -> i /= 3
-            i % 2 == 0 -> i /= 2
-            else -> return false
+class NthUglyNumber {
+    private static class UglyNumber implements Iterable<Integer> {
+        @Override
+        public Iterator<Integer> iterator() {
+            return new Iterator<Integer>() {
+                private final List<Integer> cache = new ArrayList<Integer>(List.of(1));
+
+                private boolean isUgly(int i) {
+                    var last = cache.get(cache.size() - 1);
+                    while (i > last) {
+                        if (i % 5 == 0) i /= 5;
+                        else if (i % 3 == 0) i /= 3;
+                        else if (i % 2 == 0) i /= 2;
+                        else return false;
+                    }
+                    return Collections.binarySearch(cache, i) >= 0;
+                }
+
+                @Override
+                public boolean hasNext() {
+                    return true;
+                }
+
+                @Override
+                public Integer next() {
+                    var last = cache.get(cache.size() - 1);
+                    for (var i = last + 1; ; i++) {
+                        if (isUgly(i)) {
+                            cache.add(i);
+                            return last;
+                        }
+                    }
+                }
+            };
         }
     }
-    return cache.binarySearch(i) >= 0
-}
 
-fun genUglyNumber() = sequence {
-    var i = cache.last() + 1
-    while (true) {
-        if (isUgly(i)) {
-            cache.add(i)
-            yield(i)
-        }
-        i += 1
-    }
-}
-
-fun nthUglyNumber(n: Int): Int {
-    return when {
-        cache.size >= n -> cache[n - 1]
-        else -> genUglyNumber().take(n - cache.size).last()
+    public static int nthUglyNumber(int n) {
+        return StreamSupport.stream(new UglyNumber().spliterator(), false).skip(n - 1).findFirst().get();
     }
 }
