@@ -1,17 +1,21 @@
-package leetcode
+package leetcode;
 
-fun isHappy(n: Int): Boolean {
-    var curr = n
-    val seen = HashSet<Int>()
-    while (curr != 1 && curr !in seen) {
-        seen.add(curr)
-        var next = 0
-        while (curr != 0) {
-            val digit = curr % 10
-            curr /= 10
-            next += digit * digit
+import java.util.HashSet;
+
+class IsHappy {
+    public static boolean isHappy(int n) {
+        var curr = n;
+        var seen = new HashSet<Integer>();
+        while (curr != 1 && !seen.contains(curr)) {
+            seen.add(curr);
+            var next = 0;
+            while (curr != 0) {
+                var digit = curr % 10;
+                curr /= 10;
+                next += digit * digit;
+            }
+            curr = next;
         }
-        curr = next
+        return curr == 1;
     }
-    return curr == 1
 }
