@@ -5,9 +5,9 @@ import java.util.List;
 
 class RecoverTree {
     private static void swapVal(TreeNode n1, TreeNode n2) {
-        int var = n1.val;
+        var tmp = n1.val;
         n1.val = n2.val;
-        n2.val = val;
+        n2.val = tmp;
     }
 
     public static void recoverTree(TreeNode root) {
