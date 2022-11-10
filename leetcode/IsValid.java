@@ -1,18 +1,20 @@
-package leetcode
+package leetcode;
 
-import java.util.*
+import java.util.Stack;
 
-fun isValid(s: String): Boolean {
-    val stack = Stack<Char>()
-    for (c in s) {
-        when (c) {
-            '(' -> stack.push('(')
-            '[' -> stack.push('[')
-            '{' -> stack.push('{')
-            ')' -> if (stack.isEmpty() || stack.pop() != '(') return false
-            ']' -> if (stack.isEmpty() || stack.pop() != '[') return false
-            '}' -> if (stack.isEmpty() || stack.pop() != '{') return false
+class IsValid {
+    public static boolean isValid(String s) {
+        var stack = new Stack<Character>();
+        for (var c : s.toCharArray()) {
+            switch (c) {
+                case '(': stack.push('('); break;
+                case '[': stack.push('['); break;
+                case '{': stack.push('{'); break;
+                case ')': if (stack.isEmpty() || stack.pop() != '(') return false; break;
+                case ']': if (stack.isEmpty() || stack.pop() != '[') return false; break;
+                case '}': if (stack.isEmpty() || stack.pop() != '{') return false; break;
+            }
         }
+        return stack.isEmpty();
     }
-    return stack.isEmpty()
 }
