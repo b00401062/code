@@ -1,34 +1,59 @@
-package leetcode
+package leetcode;
 
-fun isNumber(s: String): Boolean {
-    var state = "init"
-    for (c in s.trim().chars().mapToObj(Int::toChar)) {
-        state = when (c) {
-            '+', '-' -> when (state) {
-                "init" -> "sign"
-                "exp" -> "exp_sign"
-                else -> "dead"
+import java.util.List;
+
+class IsNumber {
+    public static boolean isNumber(String s) {
+        var state = "init";
+        for (var c : s.trim().toCharArray()) {
+            switch (c) {
+                case '+':
+                case '-':
+                    switch (state) {
+                        case "init": state = "sign"; break;
+                        case "exp": state = "exp_sign"; break;
+                        default: state = "dead"; break;
+                    };
+                    break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    switch (state) {
+                        case "init": case "num": case "sign": state = "num"; break;
+                        case "dot": case "frac": state = "frac"; break;
+                        case "exp": case "exp_num": case "exp_sign": state = "exp_num"; break;
+                        default: state = "dead"; break;
+                    };
+                    break;
+                case '.':
+                    switch (state) {
+                        case "init": case "sign": state = "dot"; break;
+                        case "num": state = "frac"; break;
+                        default: state = "dead"; break;
+                    };
+                    break;
+                case 'e':
+                case 'E':
+                    switch (state) {
+                        case "num": case "frac": state = "exp"; break;
+                        default: state = "dead"; break;
+                    };
+                    break;
+                default:
+                    state = "dead";
+                    break;
             }
-            in '0'..'9' -> when (state) {
-                "init", "num", "sign" -> "num"
-                "dot", "frac" -> "frac"
-                "exp", "exp_num", "exp_sign" -> "exp_num"
-                else -> "dead"
+            if (state == "dead") {
+                return false;
             }
-            '.' -> when (state) {
-                "init", "sign" -> "dot"
-                "num" -> "frac"
-                else -> "dead"
-            }
-            'e' -> when (state) {
-                "num", "frac" -> "exp"
-                else -> "dead"
-            }
-            else -> "dead"
         }
-        if (state == "dead") {
-            return false
-        }
+        return List.of("num", "frac", "exp_num").contains(state);
     }
-    return state in arrayOf("num", "frac", "exp_num")
 }
