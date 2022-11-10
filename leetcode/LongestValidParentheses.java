@@ -3,7 +3,7 @@ package leetcode
 import kotlin.math.max
 
 fun longestValidParentheses(s: String): Int {
-    val sb = StringBuilder(s)
+    var sb = StringBuilder(s)
     do {
         var changed = false
         var lt_idx = -1

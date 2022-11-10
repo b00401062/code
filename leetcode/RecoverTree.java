@@ -5,7 +5,7 @@ import java.util.List;
 
 class RecoverTree {
     private static void swapVal(TreeNode n1, TreeNode n2) {
-        int val = n1.val;
+        int var = n1.val;
         n1.val = n2.val;
         n2.val = val;
     }

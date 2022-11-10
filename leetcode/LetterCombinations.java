@@ -13,10 +13,10 @@ val map = mapOf(
 
 fun letterCombinations(digits: String): List<String> {
     if (digits.isEmpty()) return emptyList()
-    val suffixes = letterCombinations(digits.substring(1))
+    var suffixes = letterCombinations(digits.substring(1))
     if (suffixes.isEmpty())
         return map[digits[0]]!!.map(Char::toString)
-    val list = mutableListOf<String>()
+    var list = mutableListOf<String>()
     for (c in map[digits[0]]!!)
         for (suffix in suffixes)
             list.add(c.toString() + suffix)

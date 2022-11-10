@@ -11,7 +11,7 @@ private fun putNQueens(
 ) {
     if (n == N) {
         sols.add(sol.map {
-            val row = CharArray(n) { '.' }
+            var row = CharArray(n) { '.' }
             row[it] = 'Q'
             row.joinToString("")
         })
@@ -35,11 +35,11 @@ fun totalNQueens(n: Int): Int {
     if (n < 1) {
         return 0
     }
-    val cols = BooleanArray(n) { false }
-    val dia1 = BooleanArray(2 * n - 1) { false }
-    val dia2 = BooleanArray(2 * n - 1) { false }
-    val sol: MutableList<Int> = mutableListOf()
-    val sols: MutableList<List<String>> = mutableListOf()
+    var cols = BooleanArray(n) { false }
+    var dia1 = BooleanArray(2 * n - 1) { false }
+    var dia2 = BooleanArray(2 * n - 1) { false }
+    var sol: MutableList<Int> = mutableListOf()
+    var sols: MutableList<List<String>> = mutableListOf()
     putNQueens(n, 0, cols, dia1, dia2, sol, sols)
     return sols.size
 }

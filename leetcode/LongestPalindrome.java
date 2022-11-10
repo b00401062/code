@@ -13,7 +13,7 @@ private fun check(s: String, l: Int, r: Int): String {
 fun longestPalindrome(s: String): String {
     var palindrome = ""
     for (i in s.indices) {
-        val candidates = arrayOf(
+        var candidates = arrayOf(
             palindrome,
             check(s, i - 1, i + 1),
             check(s, i, i + 1)

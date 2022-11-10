@@ -6,7 +6,7 @@ fun myPow(x: Double, n: Int): Double {
         1 -> x
         -1 -> 1 / x
         else -> {
-            val half = myPow(x, n / 2)
+            var half = myPow(x, n / 2)
             myPow(x, n % 2) * half * half
         }
     }

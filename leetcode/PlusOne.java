@@ -1,7 +1,7 @@
 package leetcode
 
 fun insert(src: IntArray, idx: Int, element: Int): IntArray {
-    val dst = IntArray(src.size + 1)
+    var dst = IntArray(src.size + 1)
     System.arraycopy(src, 0, dst, 0, idx)
     dst[idx] = element
     System.arraycopy(src, idx, dst, idx + 1, src.size - idx)

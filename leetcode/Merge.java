@@ -5,7 +5,7 @@ import kotlin.math.max
 fun merge(intervals: Array<IntArray>): Array<IntArray> {
     if (intervals.isEmpty()) return arrayOf()
     intervals.sortBy { it[0] }
-    val mergedIntervals: MutableList<IntArray> = mutableListOf()
+    var mergedIntervals: MutableList<IntArray> = mutableListOf()
     var lowerLimit = intervals[0][0]
     var upperLimit = intervals[0][1]
     for (interval in intervals) {

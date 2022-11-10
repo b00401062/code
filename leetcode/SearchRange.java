@@ -6,7 +6,7 @@ private fun searchLtMargin(nums: IntArray, target: Int): Int {
     var lt = -1
     var rt = nums.size
     while (lt + 1 < rt) {
-        val mid = (lt + rt) / 2
+        var mid = (lt + rt) / 2
         if (nums[mid] >= target)
             rt = mid
         else
@@ -21,7 +21,7 @@ private fun searchRtMargin(nums: IntArray, target: Int): Int {
     var lt = -1
     var rt = nums.size
     while (lt + 1 < rt) {
-        val mid = (lt + rt) / 2
+        var mid = (lt + rt) / 2
         if (nums[mid] <= target)
             lt = mid
         else

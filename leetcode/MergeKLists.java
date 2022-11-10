@@ -13,7 +13,7 @@ private fun select(lists: Array<ListNode?>): Int {
 }
 
 fun mergeKLists(lists: Array<ListNode?>): ListNode? {
-    val head = ListNode(0)
+    var head = ListNode(0)
     var tail = head
     var i: Int = select(lists)
     while (i != -1) {

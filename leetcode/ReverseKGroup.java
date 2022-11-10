@@ -3,8 +3,8 @@ package leetcode
 import java.util.*
 
 fun reverseKGroup(head: ListNode?, k: Int): ListNode? {
-    val stack = Stack<ListNode>()
-    val root = ListNode(0)
+    var stack = Stack<ListNode>()
+    var root = ListNode(0)
     root.next = head
     var prv = root
     var ptr = head

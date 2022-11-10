@@ -9,7 +9,7 @@ fun threeSumClosest(nums: IntArray, target: Int): Int {
         var l = i + 1
         var r = nums.lastIndex
         while (l < r) {
-            val sum = nums[i] + nums[l] + nums[r]
+            var sum = nums[i] + nums[l] + nums[r]
             if (sum <= target - abs(delta))
                 l++
             else if (sum >= target + abs(delta))

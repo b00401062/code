@@ -1,7 +1,7 @@
 package leetcode
 
 fun romanToInt(s: String): Int {
-    val map = mapOf(
+    var map = mapOf(
         "I" to 1,
         "IV" to 4,
         "V" to 5,

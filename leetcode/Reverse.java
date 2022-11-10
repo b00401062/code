@@ -4,7 +4,7 @@ fun reverse(x: Int): Int {
     var x = x
     var y = 0
     while (x != 0) {
-        val pop = x % 10
+        var pop = x % 10
         x /= 10
         if (
             y > Int.MAX_VALUE / 10

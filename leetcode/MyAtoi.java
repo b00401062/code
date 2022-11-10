@@ -1,10 +1,10 @@
 package leetcode
 
 fun myAtoi(str: String): Int {
-    val trimmed = str.trim()
+    var trimmed = str.trim()
     if (trimmed.isEmpty() || trimmed[0] !in "0123456789+-")
         return 0
-    val sign = if (trimmed[0] == '-') -1 else 1
+    var sign = if (trimmed[0] == '-') -1 else 1
     var value = 0
     var valid = false
     for (i in trimmed.indices) {
@@ -12,7 +12,7 @@ fun myAtoi(str: String): Int {
             continue
         if (trimmed[i] !in "0123456789")
             break
-        val digit = trimmed[i] - '0'
+        var digit = trimmed[i] - '0'
         if (
             value > Int.MAX_VALUE / 10
             || value == Int.MAX_VALUE / 10 && digit > 7

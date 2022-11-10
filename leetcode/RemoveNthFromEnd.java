@@ -2,7 +2,7 @@ package leetcode
 
 fun removeNthFromEnd(head: ListNode?, n: Int): ListNode? {
     var curr: ListNode? = head
-    val list = mutableListOf<ListNode>()
+    var list = mutableListOf<ListNode>()
     while (curr != null) {
         list.add(curr)
         curr = curr.next

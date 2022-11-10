@@ -1,10 +1,10 @@
 package leetcode
 
-private val cache = mutableListOf(1, 2, 3, 4, 5, 6, 8, 9, 10, 12)
+private var cache = mutableListOf(1, 2, 3, 4, 5, 6, 8, 9, 10, 12)
 
 fun isUgly(i: Int): Boolean {
     var i = i
-    val last = cache.last()
+    var last = cache.last()
     while (i > last) {
         when {
             i % 5 == 0 -> i /= 5
