@@ -1,32 +1,33 @@
-package leetcode
+package leetcode;
 
-fun factorial(n: Int): Int {
-    return if (n == 1) 1 else n * factorial(n - 1)
-}
-
-fun getPermutation(n: Int, k: Int): String {
-    var n = n
-    var k = k
-    if (n == 1) {
-        return "1"
+class GetPermutation {
+    private static int factorial(int n) {
+        return n == 1 ? 1 : n * factorial(n - 1);
     }
-    val flag = BooleanArray(n)
-    val res = StringBuilder()
-    val len = n
-    while (n >= 1) {
-        val num = factorial(n)
-        var pos = (k - 1) / (num / n)
-        for (i in 0 until len) {
-            if (flag[i]) continue
-            pos--
-            if (pos < 0) {
-                flag[i] = true
-                res.append((i + 1).toString())
-                break
-            }
+
+    public static String getPermutation(int n, int k) {
+        if (n == 1) {
+            return "1";
         }
-        k = (k - 1) % (num / n) + 1
-        n--
+        var flags = new boolean[n];
+        var res = new StringBuilder();
+        var curN = n;
+        var curK = k;
+        while (curN >= 1) {
+            var nPerm = factorial(curN);
+            var pos = (curK - 1) / (nPerm / curN);
+            for (var i = 0; i < n; i++) {
+                if (flags[i]) continue;
+                pos--;
+                if (pos < 0) {
+                    flags[i] = true;
+                    res.append(String.valueOf(i + 1));
+                    break;
+                }
+            }
+            curK = (curK - 1) % (nPerm / curN) + 1;
+            curN--;
+        }
+        return res.toString();
     }
-    return res.toString()
 }

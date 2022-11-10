@@ -1,35 +1,40 @@
-package leetcode
+package leetcode;
 
-fun spiralOrder(matrix: Array<IntArray>): List<Int> {
-    val list: MutableList<Int> = mutableListOf()
-    if (matrix.isEmpty()) {
-        return list
-    }
-    var m: Int = matrix.size - 1
-    var n: Int = matrix[0].size - 1
-    var r: Int = 0
-    var c: Int = 0
-    while (r <= m && c <= n) {
-        for (j in r..n) {
-            list.add(matrix[r][j])
+import java.util.ArrayList;
+import java.util.List;
+
+class SpiralOrder {
+    public static List<Integer> spiralOrder(int[][] matrix) {
+        var list = new ArrayList<Integer>();
+        if (matrix.length == 0) {
+            return list;
         }
-        r++
-        for (i in r..m) {
-            list.add(matrix[i][n])
-        }
-        n--
-        if (r <= m) {
-            for (j in n downTo c) {
-                list.add(matrix[m][j])
+        var m = matrix.length - 1;
+        var n = matrix[0].length - 1;
+        var r = 0;
+        var c = 0;
+        while (r <= m && c <= n) {
+            for (var j = r; j <= n; j++) {
+                list.add(matrix[r][j]);
             }
-            m--
-        }
-        if (c <= n) {
-            for (i in m downTo r) {
-                list.add(matrix[i][c])
+            r++;
+            for (var i = r; i <= m; i++) {
+                list.add(matrix[i][n]);
             }
-            c++
+            n--;
+            if (r <= m) {
+                for (var j = n; j >= c; j--) {
+                    list.add(matrix[m][j]);
+                }
+                m--;
+            }
+            if (c <= n) {
+                for (var i = m; i >= r; i--) {
+                    list.add(matrix[i][c]);
+                }
+                c++;
+            }
         }
+        return list;
     }
-    return list
 }
