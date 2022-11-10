@@ -1,31 +1,38 @@
-package leetcode
+package leetcode;
 
-fun findSubstring(s: String, words: Array<String>): List<Int> {
-    if (s.isEmpty() || words.isEmpty())
-        return emptyList()
-    val word_len = words.first().length
-    val word_cnt = words.size
-    val total_len = word_len * word_cnt
-    if (total_len > s.length)
-        return emptyList()
-    val indices = mutableListOf<Int>()
-    val hash_map = mutableMapOf<String, Int>()
-    for (i in words.indices)
-        hash_map[words[i]] = hash_map.getOrPut(words[i]) { 0 } + 1
-    for (i in 0..s.length - total_len) {
-        var j = i
-        val temp_map = HashMap<String, Int>(hash_map)
-        var temp_cnt = word_cnt
-        while (j < i + total_len) {
-            val word = s.substring(j, j + word_len)
-            if (!hash_map.containsKey(word) || temp_map[word] == 0)
-                break
-            j += word_len
-            temp_map[word] = temp_map[word]!! - 1
-            temp_cnt--
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+class FindSubstring {
+    public static List<Integer> findSubstring(String s, String[] words) {
+        if (s.isEmpty() || words.length == 0)
+            return List.of();
+        var word_len = words[0].length();
+        var word_cnt = words.length;
+        var total_len = word_len * word_cnt;
+        if (total_len > s.length())
+            return List.of();
+        var indices = new ArrayList<Integer>();
+        var hash_map = new HashMap<String, Integer>();
+        for (var i = 0; i < words.length; i++) {
+            hash_map.put(words[i], hash_map.getOrDefault(words[i], 0) + 1);
         }
-        if (temp_cnt == 0)
-            indices.add(i)
+        for (var i = 0; i <= s.length() - total_len; i++) {
+            var j = i;
+            var temp_map = new HashMap<String, Integer>(hash_map);
+            var temp_cnt = word_cnt;
+            while (j < i + total_len) {
+                var word = s.substring(j, j + word_len);
+                if (!hash_map.containsKey(word) || temp_map.get(word) == 0)
+                    break;
+                j += word_len;
+                temp_map.put(word, temp_map.get(word) - 1);
+                temp_cnt--;
+            }
+            if (temp_cnt == 0)
+                indices.add(i);
+        }
+        return indices;
     }
-    return indices
 }

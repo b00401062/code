@@ -1,25 +1,28 @@
-package leetcode
+package leetcode;
 
-private fun select(l1: IntArray, l2: IntArray, k: Int): Double {
-    if (l1.isEmpty()) return l2[k].toDouble()
-    if (l2.isEmpty()) return l1[k].toDouble()
-    val pivot = l1[l1.size / 2]
-    val index = l2.binarySearch(pivot)
-    val lt1 = l1.size / 2
-    val lt2 = if (index >= 0) index else -index - 1
-    val lt = lt1 + lt2
-    return if (k == lt)
-        pivot.toDouble()
-    else if (k < lt)
-        select(l1.sliceArray(0 until lt1), l2.sliceArray(0 until lt2), k)
-    else
-        select(l1.sliceArray(lt1 + 1 until l1.size), l2.sliceArray(lt2 until l2.size), k - lt - 1)
-}
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
-fun findMedianSortedArrays(nums1: IntArray, nums2: IntArray): Double {
-    val len = nums1.size + nums2.size
-    return if (len % 2 == 0)
-        (select(nums1, nums2, len / 2 - 1) + select(nums1, nums2, len / 2)) / 2
-    else
-        select(nums1, nums2, len / 2)
+class FindMedianSortedArrays {
+    private static double select(List<Integer> l1, List<Integer> l2, int k) {
+        if (l1.size() == 0) return l2.get(k);
+        if (l2.size() == 0) return l1.get(k);
+        var pivot = l1.get(l1.size() / 2);
+        var index = Collections.binarySearch(l2, pivot);
+        var lt1 = l1.size() / 2;
+        var lt2 = index >= 0 ? index : -index - 1;
+        var lt = lt1 + lt2;
+        if (k == lt) return pivot;
+        else if (k < lt) return select(l1.subList(0, lt1), l2.subList(0, lt2), k);
+        else return select(l1.subList(lt1 + 1, l1.size()), l2.subList(lt2, l2.size()), k - lt - 1);
+    }
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        var l1 = Arrays.stream(nums1).boxed().collect(Collectors.toList());
+        var l2 = Arrays.stream(nums2).boxed().collect(Collectors.toList());
+        var len = nums1.length + nums2.length;
+        return len % 2 == 0 ? (select(l1, l2, len / 2 - 1) + select(l1, l2, len / 2)) / 2 : select(l1, l2, len / 2);
+    }
 }
