@@ -7,7 +7,7 @@ fun moveZeroes(nums: IntArray): Unit {
         nums[non_zero_count] = num
         non_zero_count += 1
     }
-    for (idx in non_zero_count until nums.size) {
+    for (var idx = non_zero_count; idx < nums.size; idx++) {
         nums[idx] = 0
     }
 }

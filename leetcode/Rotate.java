@@ -4,7 +4,7 @@ import kotlin.math.min
 
 fun rotate(matrix: Array<IntArray>): Unit {
     var n = matrix.size
-    for (i in 0 until n - 1) {
+    for (var i = 0; i < n - 1; i++) {
         for (j in 0..min(i, n - i - 2)) {
             var lt = matrix[i][j]
             var ur = matrix[j][n - i - 1]

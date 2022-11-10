@@ -4,7 +4,7 @@ private fun compile(needle: String): IntArray {
     var table = IntArray(needle.length)
     table[0] = -1
     var k = -1
-    for (i in 1 until needle.length) {
+    for (var i = 1; i < needle.length; i++) {
         while (k >= 0 && needle[k + 1] != needle[i])
             k = table[k]
         if (needle[k + 1] == needle[i])

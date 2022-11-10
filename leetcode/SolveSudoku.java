@@ -34,8 +34,8 @@ fun solveSudoku(board: Array<CharArray>): Unit {
     var col = Array(9) { BooleanArray(9) }
     var row = Array(9) { BooleanArray(9) }
     var box = Array(9) { BooleanArray(9) }
-    for (i in 0 until 9) {
-        for (j in 0 until 9) {
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
             if (board[i][j] != '.') {
                 var num = board[i][j] - '1'
                 var boxIndex = i / 3 * 3 + j / 3

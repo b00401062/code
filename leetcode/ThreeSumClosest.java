@@ -5,7 +5,7 @@ import kotlin.math.abs
 fun threeSumClosest(nums: IntArray, target: Int): Int {
     var delta = nums[0] + nums[1] + nums[2] - target
     nums.sort()
-    for (i in 0 until nums.size - 2) {
+    for (var i = 0; i < nums.size - 2; i++) {
         var l = i + 1
         var r = nums.lastIndex
         while (l < r) {

@@ -3,7 +3,7 @@ package leetcode
 fun threeSum(nums: IntArray): List<List<Int>> {
     var list = mutableListOf<List<Int>>()
     nums.sort()
-    for (i in 0 until nums.size - 2) {
+    for (var i = 0; i < nums.size - 2; i++) {
         var l = i + 1
         var r = nums.lastIndex
         while (l < r) {

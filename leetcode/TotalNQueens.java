@@ -17,7 +17,7 @@ private fun putNQueens(
         })
         return
     }
-    for (i in 0 until N) {
+    for (var i = 0; i < N; i++) {
         if (cols[i] || dia1[n + i] || dia2[N + n - i - 1]) continue
         cols[i] = true
         dia1[n + i] = true
