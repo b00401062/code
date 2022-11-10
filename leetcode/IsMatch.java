@@ -1,79 +1,120 @@
-package leetcode
+package leetcode;
 
-import java.util.*
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-private class Graph(p: String) {
+class IsMatch {
+    private static class Graph {
+        private static class Edge {
+            int s;
+            int t;
+            Character w = null;
 
-    private data class Edge(val s: Int, val t: Int, val w: Char? = null)
-    private data class Node(
-        val edges: MutableList<Edge> = mutableListOf(),
-        var visited: Boolean = false
-    )
+            Edge(int s, int t) {
+                this.s = s;
+                this.t = t;
+            }
 
-    private val nodes: MutableList<Node> = mutableListOf()
-
-    private fun addNode(): Int {
-        nodes.add(Node())
-        return nodes.lastIndex
-    }
-
-    private fun addEdge(s: Int, t: Int, w: Char? = null) {
-        nodes[s].edges.add(Edge(s, t, w))
-    }
-
-    private fun bfs(set: Set<Int>): Set<Int> {
-        nodes.forEach { it.visited = false }
-        val queue = LinkedList<Int>(set)
-        while (queue.isNotEmpty()) {
-            val n = queue.removeFirst()
-            nodes[n].visited = true
-            for (e in nodes[n].edges)
-                if (e.w == null)
-                    queue.add(e.t)
-        }
-        return nodes.indices.filter { nodes[it].visited }.toSet()
-    }
-
-    init {
-        addNode()
-        var i = 0
-        while (i < p.length) {
-            if (i < p.lastIndex && p[i + 1] == '*') {
-                val n1 = addNode()
-                val n2 = addNode()
-                val n3 = addNode()
-                val n0 = n1 - 1
-                addEdge(n0, n1)
-                addEdge(n0, n3)
-                addEdge(n1, n2, p[i])
-                addEdge(n2, n1)
-                addEdge(n2, n3)
-                i += 2
-            } else {
-                val n1 = addNode()
-                val n0 = n1 - 1
-                addEdge(n0, n1, p[i])
-                i++
+            Edge(int s, int t, Character w) {
+                this.s = s;
+                this.t = t;
+                this.w = w;
             }
         }
-    }
 
-    fun match(s: String): Boolean {
-        var set = bfs(setOf(0))
-        for (c in s) {
-            val tmp = mutableSetOf<Int>()
-            for (n in set)
-                for (e in nodes[n].edges)
-                    if (e.w == c || e.w == '.')
-                        tmp.add(e.t)
-            if (tmp.isEmpty())
-                return false
-            set = bfs(tmp)
+        private static class Node {
+            List<Edge> edges = new ArrayList<>();
+            boolean visited = false;
         }
-        return set.contains(nodes.lastIndex)
-    }
-}
 
-fun isMatch(s: String, p: String): Boolean {
-    return Graph(p).match(s)
+        private List<Node> nodes = new ArrayList<>();
+
+        Graph(String p) {
+            p = p.replace('?', '.').replace("*", ".*");
+            addNode();
+            for (var i = 0; i < p.length();) {
+                if (i < p.length() - 1 && p.charAt(i + 1) == '*') {
+                    var n1 = addNode();
+                    var n2 = addNode();
+                    var n3 = addNode();
+                    var n0 = n1 - 1;
+                    addEdge(n0, n1);
+                    addEdge(n0, n3);
+                    addEdge(n1, n2, p.charAt(i));
+                    addEdge(n2, n1);
+                    addEdge(n2, n3);
+                    i += 2;
+                } else {
+                    var n1 = addNode();
+                    var n0 = n1 - 1;
+                    addEdge(n0, n1, p.charAt(i));
+                    i++;
+                }
+            }
+        }
+
+        private int addNode() {
+            nodes.add(new Node());
+            return nodes.size() - 1;
+        }
+
+        private void addEdge(int s, int t) {
+            nodes.get(s).edges.add(new Edge(s, t));
+        }
+
+        private void addEdge(int s, int t, Character w) {
+            nodes.get(s).edges.add(new Edge(s, t, w));
+        }
+
+        private Set<Integer> bfs(Set<Integer> set){
+            for (var node : nodes) {
+                node.visited = false;
+            }
+            var queue = new LinkedList<Integer>(set);
+            while (!queue.isEmpty()) {
+                var n = queue.removeFirst();
+                nodes.get(n).visited = true;
+                for (var e : nodes.get(n).edges) {
+                    if (e.w == null) {
+                        queue.add(e.t);
+                    }
+                }
+            }
+            return (
+                IntStream
+                .range(0, nodes.size())
+                .filter((it) -> nodes.get(it).visited)
+                .boxed()
+                .collect(Collectors.toSet())
+            );
+        }
+
+        public boolean match(String s) {
+            var set = bfs(Set.<Integer>of(0));
+            for (var c : s.toCharArray()) {
+                var tmpSet = new HashSet<Integer>();
+                for (var n : set) {
+                    for (var e : nodes.get(n).edges) {
+                        if (e.w != null && (e.w == c || e.w == '.')) {
+                            tmpSet.add(e.t);
+                        }
+                    }
+                }
+                if (tmpSet.isEmpty()) {
+                    return false;
+                }
+                set = bfs(tmpSet);
+            }
+            return set.contains(nodes.size() - 1);
+        }
+    }
+
+    public static boolean isMatch(String s, String p) {
+        return new Graph(p).match(s);
+    }
 }
