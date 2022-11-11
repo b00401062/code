@@ -1,14 +1,22 @@
 package leetcode;
 
-fun permute(nums: IntArray): List<List<Int>> {
-    if (nums.isEmpty())
-        return listOf()
-    var list = mutableListOf<List<Int>>()
-    list.add(nums.copyOf().asList())
-    var times = (1..nums.size).reduce { x1: Int, x2: Int -> x1 * x2 }
-    repeat(times - 1) {
-        nextPermutation(nums)
-        list.add(nums.copyOf().asList())
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+class Permute {
+    public static List<List<Integer>> permute(int[] nums) {
+        if (nums.length == 0)
+            return List.of();
+        var list = new ArrayList<List<Integer>>();
+        list.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+        var times = IntStream.rangeClosed(1, nums.length).reduce((x1, x2) -> x1 * x2).getAsInt();
+        while (--times > 0) {
+            NextPermutation.nextPermutation(nums);
+            list.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+        }
+        return list;
     }
-    return list
 }

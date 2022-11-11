@@ -13,7 +13,7 @@ class LargestRectangleArea {
         }
     }
 
-    public static int insert(Stack<Bar> stack, int i, int height, int maxArea) {
+    private static int insert(Stack<Bar> stack, int i, int height, int maxArea) {
         int startIndex = i;
         while (stack.peek().height >= height) {
             Bar bar = stack.pop();
