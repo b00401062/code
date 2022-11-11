@@ -1,20 +1,19 @@
 package leetcode;
 
-import kotlin.math.max
-import kotlin.math.min
-
-fun trap(height: IntArray): Int {
-    var amount = 0
-    var ltMax = IntArray(height.size)
-    var rtMax = IntArray(height.size)
-    (1 until height.size).forEach {
-        ltMax[it] = max(ltMax[it - 1], height[it - 1])
-        rtMax[height.lastIndex - it] = max(rtMax[height.size - it], height[height.size - it])
+class Trap {
+    public static int trap(int[] height) {
+        var amount = 0;
+        var ltMax = new int[height.length];
+        var rtMax = new int[height.length];
+        for (var it = 1; it < height.length; it++) {
+            ltMax[it] = Math.max(ltMax[it - 1], height[it - 1]);
+            rtMax[height.length - 1 - it] = Math.max(rtMax[height.length - it], height[height.length - it]);
+        }
+        for (var it = 1; it < height.length; it++) {
+            var minMax = Math.min(ltMax[it], rtMax[it]);
+            var diff = minMax - height[it];
+            amount += diff > 0 ? diff : 0;
+        }
+        return amount;
     }
-    height.indices.forEach {
-        var minMax = min(ltMax[it], rtMax[it])
-        var diff = minMax - height[it]
-        amount += if (diff > 0) diff else 0
-    }
-    return amount
 }
