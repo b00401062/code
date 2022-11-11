@@ -1,18 +1,20 @@
 package leetcode;
 
-fun traverse(node: TreeNode?, root_sum: Int): Int {
-    if (node == null) {
-        return 0
+class SumNumbers {
+    private static int traverse(TreeNode node, int rootSum) {
+        if (node == null) {
+            return 0;
+        }
+        var currSum = rootSum * 10 + node.val;
+        if (node.left == null && node.right == null) {
+            return currSum;
+        }
+        var ltSum = traverse(node.left, currSum);
+        var rtSum = traverse(node.right, currSum);
+        return ltSum + rtSum;
     }
-    var curr_sum = root_sum * 10 + node.`val`
-    if (node.left == null && node.right == null) {
-        return curr_sum
-    }
-    var left_sum = traverse(node.left, curr_sum)
-    var right_sum = traverse(node.right, curr_sum)
-    return left_sum + right_sum
-}
 
-fun sumNumbers(root: TreeNode?): Int {
-    return traverse(root, 0)
+    public static int sumNumbers(TreeNode root) {
+        return traverse(root, 0);
+    }
 }

@@ -1,31 +1,33 @@
 package leetcode;
 
-private fun compile(needle: String): IntArray {
-    var table = IntArray(needle.length)
-    table[0] = -1
-    var k = -1
-    for (var i = 1; i < needle.length; i++) {
-        while (k >= 0 && needle[k + 1] != needle[i])
-            k = table[k]
-        if (needle[k + 1] == needle[i])
-            k++
-        table[i] = k
+class StrStr {
+    private static int[] compile(String needle) {
+        var table = new int[needle.length()];
+        table[0] = -1;
+        var k = -1;
+        for (var i = 1; i < needle.length(); i++) {
+            while (k >= 0 && needle.charAt(k + 1) != needle.charAt(i))
+                k = table[k];
+            if (needle.charAt(k + 1) == needle.charAt(i))
+                k++;
+            table[i] = k;
+        }
+        return table;
     }
-    return table
-}
 
-fun strStr(haystack: String, needle: String): Int {
-    if (needle.isEmpty())
-        return 0
-    var table = compile(needle)
-    var k = -1
-    for (i in haystack.indices) {
-        while (k >= 0 && needle[k + 1] != haystack[i])
-            k = table[k]
-        if (needle[k + 1] == haystack[i])
-            k++
-        if (k == needle.lastIndex)
-            return i - k
+    public static int strStr(String haystack, String needle) {
+        if (needle.isEmpty())
+            return 0;
+        var table = compile(needle);
+        var k = -1;
+        for (var i = 0; i < haystack.length(); i++) {
+            while (k >= 0 && needle.charAt(k + 1) != haystack.charAt(i))
+                k = table[k];
+            if (needle.charAt(k + 1) == haystack.charAt(i))
+                k++;
+            if (k == needle.length() - 1)
+                return i - k;
+        }
+        return -1;
     }
-    return -1
 }
