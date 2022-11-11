@@ -1,24 +1,24 @@
 package leetcode;
 
-private fun check(s: String, l: Int, r: Int): String {
-    var l = l
-    var r = r
-    while (l >= 0 && r < s.length && s[l] == s[r]) {
-        l--
-        r++
+class LongestPalindrome {
+    private static int[] check(String s, int l, int r) {
+        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+            l--;
+            r++;
+        }
+        return new int[] { l + 1, r };
     }
-    return s.substring(l + 1, r)
-}
 
-fun longestPalindrome(s: String): String {
-    var palindrome = ""
-    for (i in s.indices) {
-        var candidates = arrayOf(
-            palindrome,
-            check(s, i - 1, i + 1),
-            check(s, i, i + 1)
-        )
-        palindrome = candidates.maxByOrNull(String::length)!!
+    public static String longestPalindrome(String s) {
+        var curB = new int[2];
+        for (var i = 0; i < s.length(); i++) {
+            var evenB = check(s, i - 1, i + 1);
+            if (evenB[1] - evenB[0] > curB[1] - curB[0])
+                curB = evenB;
+            var oddB = check(s, i, i + 1);
+            if (oddB[1] - oddB[0] > curB[1] - curB[0])
+                curB = oddB;
+        }
+        return s.substring(curB[0], curB[1]);
     }
-    return palindrome
 }

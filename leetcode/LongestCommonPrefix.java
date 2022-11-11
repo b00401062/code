@@ -1,18 +1,17 @@
 package leetcode;
 
-import kotlin.math.min
+import java.util.Arrays;
 
-fun longestCommonPrefix(strs: Array<String>): String {
-    if (strs.isEmpty()) return ""
-    var prefix = strs[0]
-    for (s in strs.sliceArray(1 until strs.size)) {
-        prefix = prefix.substring(0 until min(prefix.length, s.length))
-        for (i in prefix.indices)
-            if (prefix[i] != s[i]) {
-                prefix = prefix.substring(0, i)
-                break
+class LongestCommonPrefix {
+    public static String longestCommonPrefix(String[] strs) {
+        return Arrays.stream(strs).reduce((s1, s2) -> {
+            var maxCommonPrefixLen = Math.min(s1.length(), s2.length());
+            for (var i = 0; i < maxCommonPrefixLen; i++) {
+                if (s1.charAt(i) != s2.charAt(i)) {
+                    return s1.substring(0, i);
+                }
             }
-        if (prefix.isEmpty()) return prefix
+            return s1.substring(0, maxCommonPrefixLen);
+        }).orElse("");
     }
-    return prefix
 }
