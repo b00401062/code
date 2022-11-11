@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun myPow(x: Double, n: Int): Double {
     return when (n) {

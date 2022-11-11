@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun swapPairs(head: ListNode?): ListNode? {
     var root = ListNode(0)

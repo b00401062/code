@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun permute(nums: IntArray): List<List<Int>> {
     if (nums.isEmpty())

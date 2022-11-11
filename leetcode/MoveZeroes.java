@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun moveZeroes(nums: IntArray): Unit {
     var non_zero_count = 0

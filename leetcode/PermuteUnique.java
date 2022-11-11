@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun permuteUnique(nums: IntArray): List<List<Int>> {
     fun factorial(n: Int): Int =

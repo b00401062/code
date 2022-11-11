@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun rotateRight(head: ListNode?, k: Int): ListNode? {
     if (head == null || head.next == null) return head

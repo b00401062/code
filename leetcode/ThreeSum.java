@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun threeSum(nums: IntArray): List<List<Int>> {
     var list = mutableListOf<List<Int>>()

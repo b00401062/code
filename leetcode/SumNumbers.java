@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun traverse(node: TreeNode?, root_sum: Int): Int {
     if (node == null) {

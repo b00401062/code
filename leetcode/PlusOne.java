@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 fun insert(src: IntArray, idx: Int, element: Int): IntArray {
     var dst = IntArray(src.size + 1)

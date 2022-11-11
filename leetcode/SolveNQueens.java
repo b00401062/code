@@ -1,4 +1,4 @@
-package leetcode
+package leetcode;
 
 private fun putNQueens(
     N: Int,
