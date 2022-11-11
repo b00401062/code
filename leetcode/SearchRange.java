@@ -1,38 +1,40 @@
-package leetcode
+package leetcode;
 
-private fun searchLtMargin(nums: IntArray, target: Int): Int {
-    if (nums.isEmpty())
-        return -1
-    var lt = -1
-    var rt = nums.size
-    while (lt + 1 < rt) {
-        var mid = (lt + rt) / 2
-        if (nums[mid] >= target)
-            rt = mid
-        else
-            lt = mid
+class SearchRange {
+    private static int searchLtMargin(int[] nums, int target) {
+        if (nums.length == 0)
+            return -1;
+        var lt = -1;
+        var rt = nums.length;
+        while (lt + 1 < rt) {
+            var mid = (lt + rt) / 2;
+            if (nums[mid] >= target)
+                rt = mid;
+            else
+                lt = mid;
+        }
+        return rt < nums.length && nums[rt] == target ? rt : -1;
     }
-    return if (rt < nums.size && nums[rt] == target) rt else -1
-}
 
-private fun searchRtMargin(nums: IntArray, target: Int): Int {
-    if (nums.isEmpty())
-        return -1
-    var lt = -1
-    var rt = nums.size
-    while (lt + 1 < rt) {
-        var mid = (lt + rt) / 2
-        if (nums[mid] <= target)
-            lt = mid
-        else
-            rt = mid
+    private static int searchRtMargin(int[] nums, int target) {
+        if (nums.length == 0)
+            return -1;
+        var lt = -1;
+        var rt = nums.length;
+        while (lt + 1 < rt) {
+            var mid = (lt + rt) / 2;
+            if (nums[mid] <= target)
+                lt = mid;
+            else
+                rt = mid;
+        }
+        return lt >= 0 && nums[lt] == target ? lt : -1;
     }
-    return if (lt >= 0 && nums[lt] == target) lt else -1
-}
 
-fun searchRange(nums: IntArray, target: Int): IntArray {
-    return intArrayOf(
-        searchLtMargin(nums, target),
-        searchRtMargin(nums, target)
-    )
+    public static int[] searchRange(int[] nums, int target) {
+        return new int[] {
+            searchLtMargin(nums, target),
+            searchRtMargin(nums, target)
+        };
+    }
 }

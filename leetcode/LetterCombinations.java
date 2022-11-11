@@ -1,24 +1,30 @@
-package leetcode
+package leetcode;
 
-val map = mapOf(
-    '2' to "abc",
-    '3' to "def",
-    '4' to "ghi",
-    '5' to "jkl",
-    '6' to "mno",
-    '7' to "pqrs",
-    '8' to "tuv",
-    '9' to "wxyz"
-)
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-fun letterCombinations(digits: String): List<String> {
-    if (digits.isEmpty()) return emptyList()
-    var suffixes = letterCombinations(digits.substring(1))
-    if (suffixes.isEmpty())
-        return map[digits[0]]!!.map(Char::toString)
-    var list = mutableListOf<String>()
-    for (c in map[digits[0]]!!)
-        for (suffix in suffixes)
-            list.add(c.toString() + suffix)
-    return list
+class LetterCombinations {
+    private static final Map<Character, List<String>> map = Map.of(
+        '2', List.of("a", "b", "c"),
+        '3', List.of("d", "e", "f"),
+        '4', List.of("g", "h", "i"),
+        '5', List.of("j", "k", "l"),
+        '6', List.of("m", "n", "o"),
+        '7', List.of("p", "q", "r", "s"),
+        '8', List.of("t", "u", "v"),
+        '9', List.of("w", "x", "y", "z")
+    );
+
+    public static List<String> letterCombinations(String digits) {
+        if (digits.isEmpty()) return List.of();
+        var suffixes = letterCombinations(digits.substring(1));
+        if (suffixes.isEmpty())
+            return map.get(digits.charAt(0));
+        var list = new ArrayList<String>();
+        for (var c : map.get(digits.charAt(0)))
+            for (var suffix : suffixes)
+                list.add(c + suffix);
+        return list;
+    }
 }
