@@ -1,9 +1,11 @@
 package leetcode;
 
-fun removeElement(nums: IntArray, `val`: Int): Int {
-    var count = 0
-    for (num in nums)
-        if (num != `val`)
-            nums[count++] = num
-    return count
+class RemoveElement {
+    public static int removeElement(int[] nums, int val) {
+        var count = 0;
+        for (var num : nums)
+            if (num != val)
+                nums[count++] = num;
+        return count;
+    }
 }

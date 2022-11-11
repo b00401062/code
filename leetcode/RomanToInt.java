@@ -1,31 +1,37 @@
 package leetcode;
 
-fun romanToInt(s: String): Int {
-    var map = mapOf(
-        "I" to 1,
-        "IV" to 4,
-        "V" to 5,
-        "IX" to 9,
-        "X" to 10,
-        "XL" to 40,
-        "L" to 50,
-        "XC" to 90,
-        "C" to 100,
-        "CD" to 400,
-        "D" to 500,
-        "CM" to 900,
-        "M" to 1000
-    )
-    var i = 0
-    var num = 0
-    while (i < s.length) {
-        if (i < s.lastIndex && s.substring(i, i + 2) in map.keys) {
-            num += map[s.substring(i, i + 2)]!!
-            i += 2
-        } else {
-            num += map[s.substring(i, i + 1)]!!
-            i++
+import java.util.HashMap;
+import java.util.Map;
+
+class RomanToInt {
+    private static final Map<String, Integer> MAP = new HashMap<>() {{
+        put("I", 1);
+        put("IV", 4);
+        put("V", 5);
+        put("IX", 9);
+        put("X", 10);
+        put("XL", 40);
+        put("L", 50);
+        put("XC", 90);
+        put("C", 100);
+        put("CD", 400);
+        put("D", 500);
+        put("CM", 900);
+        put("M", 1000);
+    }};
+
+    public static int romanToInt(String s) {
+        var i = 0;
+        var num = 0;
+        while (i < s.length()) {
+            if (i < s.length() - 1 && MAP.containsKey(s.substring(i, i + 2))) {
+                num += MAP.get(s.substring(i, i + 2));
+                i += 2;
+            } else {
+                num += MAP.get(s.substring(i, i + 1));
+                i++;
+            }
         }
+        return num;
     }
-    return num
 }
